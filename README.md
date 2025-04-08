@@ -1,4 +1,4 @@
-![9](https://github.com/user-attachments/assets/b8c8dd89-69ba-4e58-a629-296d85b9f2aa)![3](https://github.com/user-attachments/assets/ebd72f37-a0af-44cb-bae2-3ed3d9c43b96)# Department Website
+# Department Website
 
 ## Project Description
 The Department Website is a responsive web application designed to manage and display information related to faculty, students, and other departmental data. The frontend is built using HTML, CSS, and a little JavaScript to ensure a dynamic and interactive user experience. The backend is powered by Spring Boot to handle data processing and server-side operations.
@@ -110,6 +110,9 @@ Admission enquiry db
 ![7](https://github.com/user-attachments/assets/b168d9ec-4c24-4a9c-814f-3f230d0ed1f7)
 Faculty db
 ![8](https://github.com/user-attachments/assets/c737911b-840e-4a13-a778-5fa50c56d314)
+
+SpringBoot Backend 
+![9](https://github.com/user-attachments/assets/b8c8dd89-69ba-4e58-a629-296d85b9f2aa)![3](https://github.com/user-attachments/assets/ebd72f37-a0af-44cb-bae2-3ed3d9c43b96)
 
 Faculty Login page 
 ![9](https://github.com/user-attachments/assets/6102dd83-7b55-41ac-9125-5693cc5ee566)
