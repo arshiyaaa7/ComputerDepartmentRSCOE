@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSPM RSCOE - Computer Engineering</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <img src="JSPM-logo.jpeg" alt="College Logo" class="college-logo">
+            <div class="header-text">
+                <h1>JSPM's Rajarshi Shahu College of Engineering</h1>
+                <h2>
+                    An Empowered Autonomous Institute Affiliated to Savitribai Phule Pune University, Approved by AICTE<br>
+                    Accredited by NBA (UG Programs), Accredited by NAAC With "A" Grade
+                </h2>
+            </div>
+            <img src="JSPM-logo-2.jpg" alt="Founder Logo" class="founder-logo">
+        </div>
+        <br>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="department.html">Department</a>
+            <a href="admission.html">Admission Enquiry</a>
+            <a href="faculty_login.html">Faculty Login</a>
+
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to DEPARTMENT OF COMPUTER ENGINEERING.</h1>
+        <section>
+            <h2>About Us</h2>
+            <p>The Department of Computer Engineering is established in the year of 2001 with an initial intake of 45 students. From 2002 intake has been increased to 60. The Computer Engineering Department is accomplished with full of energetic, well-qualified and experienced faculty who is also involved in research, professional activities inside & outside the campus. The department's academic results have been consistently excellent in last five years. The department also motivates the student to involve in extracurricular and co-curricular activities like paper presentation, project competition, industrial visits etc. leading towards the all-round development of our students. The Department entails well-established laboratories with latest configuration. I hope the faculty and students continue with the good work and bring laurels to the department. </p>
+        </section>
+        <section>
+            <h2>Department Highlights</h2>
+            <p>Accredited consecutively in 4 cycles by National Board of Accreditation (NBA), New Delhi </p>
+            <p>Total 21 students are in university rank</p> 
+            <p>Collaboration with TCS for curriculum development from FY BTech to Final Year BTech Computer Engineering</p>
+            <p>Remote Centre by IIT Bombay</p>
+            <p>Pune District Nodal Centre for Spoken Tutorials by IIT Bombay</p>
+            <p>International Certification from Microsoft, Coursera, Tedx offered to students</p>
+            <p>Students Internship in International Universities viz. University of Malaysia-Pahang, Malaysia, KMITL, Thailand</p>
+            <p>National / international, curricular / extra-curricular activities</p>
+            <p>MoUs with renowned industries for Internship, Sponsored projects and consultancy services</p>
+            <p>Special track of Industry Internship, Research, Higher studies and Entrepreneurship in final year</p>
+            <p>Conducive environment for Research, Patents and IPR</p>
+            <p>Overall development of students through Professional bodies like ACM (Association for Computing Machinery), CSI (Computer Society of India), IEEE, IEI (Institute of Engineers), and ISTE</p>
+            <p>Rotract Club rated as top 10 in India</p>
+            <p>Inclusive Development of Students through Coding Club, Research Cell, Sports Club, Arts and Crafts Club, and Entrepreneur Development Club Activities</p>
+            <p>Presence of Alumni across globe working with international brands viz. Amazon, Facebook, Microsoft, Oracle and Foreign Universities</p>
+            <p>Funding received from AICTE, ISTE, and SPPU</p>
+            <p>Ms. Harsha Ravindra Bhakare (B.E. Computer Engg.) is first in all Engineering branches in May 2020 result</p>    
+        </section>
+
+        <section>
+            <h2>Student Achievements</h2>
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="Gate_1.jpg" style="width:100%" alt="Gate Topper 1">
+                </div>
+                <div class="mySlides fade">
+                    <img src="Gate_2.jpg" style="width:100%" alt="Gate Toppers Group">
+                </div>
+                <div class="mySlides fade">
+                    <img src="Rank_1.png" style="width:100%" alt="University Rank 1">
+                </div>
+                <div class="mySlides fade">
+                    <img src="Highest_Package.jpg" style="width:100%" alt="Highest Package">
+                </div>
+            </div>
+            <br>
+            <div style="text-align:center">
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+            </div>
+        </section>
+        
+        
+    </main>
+    <footer>
+        &copy; 2025 JSPM RSCOE - Department of Computer Engineering
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+    
+        function showSlides() {
+            let i;
+            const slides = document.getElementsByClassName("mySlides");
+            const dots = document.getElementsByClassName("dot");
+    
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+    
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+    
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+    
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+    
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+    </script>
+    
+</body>
+</html>

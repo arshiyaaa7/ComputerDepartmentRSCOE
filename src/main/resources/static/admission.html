@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSPM RSCOE - Admission Enquiry</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header">
+  <div class="header-content">
+    <img src="JSPM-logo.jpeg" alt="College Logo" class="college-logo">
+    <div class="header-text">
+      <h1>JSPM's Rajarshi Shahu College of Engineering</h1>
+      <h2>
+        An Empowered Autonomous Institute Affiliated to Savitribai Phule Pune University, Approved by AICTE<br>
+        Accredited by NBA (UG Programs), Accredited by NAAC With "A" Grade
+      </h2>
+    </div>
+    <img src="JSPM-logo-2.jpg" alt="Founder Logo" class="founder-logo">
+  </div>
+  <br>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="department.html">Department</a>
+    <a href="admission.html">Admission Enquiry</a>
+    <a href="faculty_login.html">Faculty Login</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Admission Enquiry</h1>
+  <section>
+    <h2>Interested in Joining JSPM RSCOE?</h2>
+    <form onsubmit="submitEnquiry(event)">
+      <label for="fullName">Full Name:</label><br>
+      <input type="text" id="fullName" name="fullName" placeholder="Your Name" required><br><br>
+
+      <label for="email">Email Address:</label><br>
+      <input type="email" id="email" name="email" placeholder="example@domain.com" required><br><br>
+
+      <label for="phoneNumber">Phone Number:</label><br>
+      <input type="text" id="phoneNumber" name="phoneNumber" placeholder="1234567890" required><br><br>
+
+      <label for="interestedCourse">Interested Course:</label><br>
+      <select id="interestedCourse" name="interestedCourse" required>
+        <option value="" disabled selected>--Select--</option>
+        <option value="Computer Engineering">Computer Engineering</option>
+        <option value="Information Technology">Information Technology</option>
+        <option value="Electronics Engineering">Electronics Engineering</option>
+      </select><br><br>
+
+      <label for="message">Your Message:</label><br>
+      <textarea id="message" name="message" rows="4" placeholder="Ask your queries here..." required></textarea><br><br>
+
+      <button type="submit">Submit Enquiry</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 JSPM RSCOE - Department of Computer Engineering
+</footer>
+
+<script>
+  async function submitEnquiry(event) {
+    event.preventDefault();
+
+    const fullName = document.getElementById("fullName").value;
+    const email = document.getElementById("email").value;
+    const phoneNumber = document.getElementById("phoneNumber").value;
+    const interestedCourse = document.getElementById("interestedCourse").value;
+    const message = document.getElementById("message").value;
+
+    const data = {
+      fullName,
+      email,
+      phoneNumber,
+      interestedCourse,
+      message
+    };
+
+    try {
+      const response = await fetch("/api/admission/enquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        alert("Enquiry submitted successfully!");
+        // Clear form after submission
+        document.getElementById("fullName").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("phoneNumber").value = "";
+        document.getElementById("interestedCourse").value = "";
+        document.getElementById("message").value = "";
+      } else {
+        const errorData = await response.json();
+        alert("Error: " + errorData.message);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred while submitting the enquiry.");
+    }
+  }
+</script>
+</body>
+</html>

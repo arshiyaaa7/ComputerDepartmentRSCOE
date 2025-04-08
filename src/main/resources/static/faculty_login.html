@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Faculty Login - JSPM RSCOE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(120deg, #003366, #0055a5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #003366;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #003366;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0055a5;
+    }
+
+    .footer {
+      text-align: center;
+      color: #ccc;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="login-container">
+  <h2>Faculty Login</h2>
+  <form onsubmit="login(event)">
+    <label for="username">Faculty ID / Email</label>
+    <input type="text" id="username" name="username" placeholder="Enter your faculty ID" required />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Enter your password" required />
+
+    <button type="submit">Login</button>
+  </form>
+  <div class="footer">© 2025 JSPM RSCOE Computer Engineering Dept</div>
+</div>
+
+<script>
+  async function login(event) {
+    event.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    try {
+      const response = await fetch("/api/faculty/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: username, password }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert(result.message);
+        if (result.message === "Login Successful") {
+          // Save faculty ID to local storage
+          localStorage.setItem("facultyId", result.facultyId);
+          window.location.href = "dashboard.html"; // Redirect to dashboard on success
+        }
+      } else {
+        alert(result.message || "Login failed. Please check your credentials.");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      alert("An error occurred while processing the login.");
+    }
+  }
+</script>
+</body>
+</html>
